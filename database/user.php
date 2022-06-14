@@ -30,13 +30,17 @@ class User {
 
   function getTotal(){
     $cart = $this->carrello;
-    $totalePartìziale = 0;
+    $totale = 0;
 
     foreach($cart as $item){
-      $totalePartìziale += $item->costo;
+      $totale += intval($item->costo);
     }
 
-    return $totalePartìziale;
+    if($this->registrato){
+      $totale = $totale - (($totale / 100) * 20);
+    }
+
+    return $totale;
   }
 
   function signUp($_password){
