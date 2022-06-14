@@ -22,10 +22,17 @@ $renato->addToCart($crocchetteN_T_10, 2);
 $renato->addTocart($tiragraffi);
 $renato->addToCArt($ossoCani, 7);
 
-//l'utente si regisistra
+//l'utente si regisistra e aggiunge una carta
 $renato->signUp('renatoconfuorto');
+$renato->addCard('2544369859664457', '20.06.24', '224', 122.30);
 
+//ottenere il totale del carrello
 $totale = $renato->getTotal();
+
+//pagare con la carta
+$renato->payment();
+
+
 
 var_dump($totale);
 
